@@ -15,6 +15,12 @@
 		3F747E262343A0E200C43168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F747E242343A0E200C43168 /* LaunchScreen.storyboard */; };
 		3F747E312343A0E300C43168 /* Pushup_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F747E302343A0E300C43168 /* Pushup_TrackerTests.swift */; };
 		3F747E3C2343A0E300C43168 /* Pushup_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F747E3B2343A0E300C43168 /* Pushup_TrackerUITests.swift */; };
+		3F9984C1234444D500B14858 /* AddWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9984C0234444D500B14858 /* AddWorkoutController.swift */; };
+		3F9984C32344451900B14858 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9984C22344451900B14858 /* MainController.swift */; };
+		3F9984C5234446DB00B14858 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9984C4234446DB00B14858 /* Default-568h@2x.png */; };
+		3FCA4912234452B200405FBA /* WorkOutEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCA4911234452B200405FBA /* WorkOutEntry.swift */; };
+		3FCA49142344556D00405FBA /* WebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCA49132344556D00405FBA /* WebsiteController.swift */; };
+		3FCA491623468A2C00405FBA /* WorkoutDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCA491523468A2C00405FBA /* WorkoutDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		3F747E372343A0E300C43168 /* Pushup TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pushup TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F747E3B2343A0E300C43168 /* Pushup_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pushup_TrackerUITests.swift; sourceTree = "<group>"; };
 		3F747E3D2343A0E300C43168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F9984C0234444D500B14858 /* AddWorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutController.swift; sourceTree = "<group>"; };
+		3F9984C22344451900B14858 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		3F9984C4234446DB00B14858 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3FCA4911234452B200405FBA /* WorkOutEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutEntry.swift; sourceTree = "<group>"; };
+		3FCA49132344556D00405FBA /* WebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteController.swift; sourceTree = "<group>"; };
+		3FCA491523468A2C00405FBA /* WorkoutDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +91,10 @@
 		3F747E0D2343A0DD00C43168 = {
 			isa = PBXGroup;
 			children = (
-				3F747E182343A0DD00C43168 /* Pushup Tracker */,
+				3F9984C4234446DB00B14858 /* Default-568h@2x.png */,
+				3F9984BB234443E700B14858 /* Model */,
+				3F9984BC2344440800B14858 /* View */,
+				3F9984BD2344440F00B14858 /* Controller */,
 				3F747E2F2343A0E300C43168 /* Pushup TrackerTests */,
 				3F747E3A2343A0E300C43168 /* Pushup TrackerUITests */,
 				3F747E172343A0DD00C43168 /* Products */,
@@ -96,20 +111,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3F747E182343A0DD00C43168 /* Pushup Tracker */ = {
-			isa = PBXGroup;
-			children = (
-				3F747E192343A0DD00C43168 /* AppDelegate.swift */,
-				3F747E1B2343A0DD00C43168 /* SceneDelegate.swift */,
-				3F747E1D2343A0DD00C43168 /* ViewController.swift */,
-				3F747E1F2343A0DD00C43168 /* Main.storyboard */,
-				3F747E222343A0E200C43168 /* Assets.xcassets */,
-				3F747E242343A0E200C43168 /* LaunchScreen.storyboard */,
-				3F747E272343A0E200C43168 /* Info.plist */,
-			);
-			path = "Pushup Tracker";
-			sourceTree = "<group>";
-		};
 		3F747E2F2343A0E300C43168 /* Pushup TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +125,50 @@
 			children = (
 				3F747E3B2343A0E300C43168 /* Pushup_TrackerUITests.swift */,
 				3F747E3D2343A0E300C43168 /* Info.plist */,
+				3F9984BF2344443E00B14858 /* Supporting Files */,
 			);
 			path = "Pushup TrackerUITests";
+			sourceTree = "<group>";
+		};
+		3F9984BB234443E700B14858 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FCA4911234452B200405FBA /* WorkOutEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F9984BC2344440800B14858 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F747E1F2343A0DD00C43168 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F9984BD2344440F00B14858 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F747E1D2343A0DD00C43168 /* ViewController.swift */,
+				3F9984C0234444D500B14858 /* AddWorkoutController.swift */,
+				3F9984C22344451900B14858 /* MainController.swift */,
+				3FCA49132344556D00405FBA /* WebsiteController.swift */,
+				3FCA491523468A2C00405FBA /* WorkoutDetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F9984BF2344443E00B14858 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F747E192343A0DD00C43168 /* AppDelegate.swift */,
+				3F747E1B2343A0DD00C43168 /* SceneDelegate.swift */,
+				3F747E222343A0E200C43168 /* Assets.xcassets */,
+				3F747E242343A0E200C43168 /* LaunchScreen.storyboard */,
+				3F747E272343A0E200C43168 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F747E262343A0E200C43168 /* LaunchScreen.storyboard in Resources */,
+				3F9984C5234446DB00B14858 /* Default-568h@2x.png in Resources */,
 				3F747E232343A0E200C43168 /* Assets.xcassets in Resources */,
 				3F747E212343A0DD00C43168 /* Main.storyboard in Resources */,
 			);
@@ -260,8 +304,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F747E1E2343A0DD00C43168 /* ViewController.swift in Sources */,
+				3F9984C1234444D500B14858 /* AddWorkoutController.swift in Sources */,
+				3FCA491623468A2C00405FBA /* WorkoutDetailController.swift in Sources */,
+				3FCA4912234452B200405FBA /* WorkOutEntry.swift in Sources */,
 				3F747E1A2343A0DD00C43168 /* AppDelegate.swift in Sources */,
 				3F747E1C2343A0DD00C43168 /* SceneDelegate.swift in Sources */,
+				3F9984C32344451900B14858 /* MainController.swift in Sources */,
+				3FCA49142344556D00405FBA /* WebsiteController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
