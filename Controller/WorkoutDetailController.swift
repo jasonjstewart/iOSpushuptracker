@@ -10,17 +10,19 @@ import UIKit
 
 class WorkoutDetailController: UIViewController {
     
-    var numPushups = 12
-    var date = "11/04/2001"
-    var setNum = 3
+//MARK - Properties
+    var numPushups = 0
+    var date = "10/7/2019"
+    var setNum = 0
     
-    
+//MARK - Outlets
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var numSetLabel: UILabel!
     
     @IBOutlet weak var numPushupsLabel: UILabel!
     
+//MARK - methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,4 @@ class WorkoutDetailController: UIViewController {
         numSetLabel.text = "\(setNum)"
         
     }
-    
-
 }

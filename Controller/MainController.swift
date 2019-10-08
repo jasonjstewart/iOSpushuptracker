@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
 class MainController: UITableViewController {
     
+// MARK - Properites
     var model: [WorkOutEntry] = []
     //var workoutIndex = 0
     var sumPushups = 0
@@ -21,16 +23,14 @@ class MainController: UITableViewController {
     
     public struct key{
         static let workout = "workout"
+        static let workouts = "workouts"
     }
+    
+//MARK - Methods needed for the segues and ViewDidLoad
     
     @IBAction func exitScene(_ segue: UIStoryboardSegue){
         //in this case, this is nothin to do but we need a target
     }
-    
-//    @IBAction func showWorkoutDetail(_ segue: UIStoryboardSegue){
-//        if let
-//    }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +78,7 @@ class MainController: UITableViewController {
             
             tableView.reloadData()
             totalPushups()
+            saveModel()
         }
     }
     
@@ -89,32 +90,25 @@ class MainController: UITableViewController {
         
         
     }
+    
+    //MARK - Restore State
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        
+        if let savedWorkouts = coder.decodeObject(forKey: key.workouts) as? [WorkOutEntry]{
+            model = savedWorkouts
+        }
+        //workouts = coder.decodePropertyList(forKey: workouts)
+        
+    }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        
+        coder.encode(UserDefaults.standard.array(forKey: key.workout), forKey: key.workouts)
+    }
 }
 
-// MARK - State Restoration
-
-//override func decodeRestorableState(with coder: NSCoder) {
-//    super.decodeRestorableState(with: coder)
-//    indexPath = coder.decodeInteger(forKey: key.workout)
-//
-//    coder.decodeObject(forKey: Key.currentQuoteIndex)
-//
-//    if let savedTopic = coder.decodeObject(forKey: Key.topic) as? String{
-//        topic = savedTopic
-//    }
-//    else{
-//        topic=nil
-//    }
-//
-//    configure(updatingCurrentIndex: false)
-//}
-//
-//override func encodeRestorableState(with coder: NSCoder) {
-//    super.encodeRestorableState(with: coder)
-//
-//    coder.encode(currentQuoteIndex, forKey: Key.currentQuoteIndex)
-//    coder.encode(topic, forKey: Key.topic)
-//}
 
 
 //MARK - Table View Delegate
@@ -125,7 +119,8 @@ extension MainController{
     }
 }
     
-    //MARK - Table View Source
+//MARK - Table View Source
+
 extension MainController{
         
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,12 +146,13 @@ extension MainController{
 
 }
 
-//MARK - 
+//MARK - Models, save and load, initialize
+
 extension MainController{
     
     private func loadModel(){
         if let storedModel = UserDefaults.standard.array(forKey: key.workout) as? [[WorkOutEntry]]{
-            model.removeAll()
+            //model.removeAll()
             
             for propertyListWorkout in storedModel {
                 if let workout = WorkOutEntry(propertyList: propertyListWorkout){
@@ -173,7 +169,7 @@ extension MainController{
     }
     
     private func initializeModel(){
-        model.removeAll()
+        //model.removeAll()
         totalPushups()
         
     }
